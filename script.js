@@ -1,7 +1,7 @@
 const cardsEle = document.querySelector(".cards");
 
 const cards = [];
-const images = [
+const temp = [
   "archer",
   "barbarian",
   "builder",
@@ -11,6 +11,7 @@ const images = [
   "warden",
   "wizard",
 ];
+const images = [...temp, ...temp];
 
 function shuffle(images) {  
   images.sort(() =>Math.random() - 0.5);  
@@ -19,11 +20,11 @@ function shuffle(images) {
   }  
   shuffle(images)
 
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 16; i++) {
   let ele = document.createElement("div");
   ele.classList.add("card");
-  ele.innerHTML = `<img class="hide" src="./images/${images[i%4]}.png" alt=${
-    images[i % 4]
+  ele.innerHTML = `<img class="hide" src="./images/${images[i%8]}.png" alt=${
+    images[i % 8]
   }/>`;
   console.log(ele.lastChild)
   cards.push(ele);
